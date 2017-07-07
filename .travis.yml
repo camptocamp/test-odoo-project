@@ -22,6 +22,7 @@ before_install:
   - git config --global user.email "travis@camptocamp.com"
   - if [ "$LINT_CHECK" == "1" ] ; then pip install --user -q flake8 ; fi
   - if [ "$LINT_CHECK" == "0" ] ; then pip install --user -q gitpython requests pyyaml; fi
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - if [ "$TESTS" == "1" ] ; then git submodule update --init ; fi
 
 install:
