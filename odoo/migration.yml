@@ -1,0 +1,23 @@
+migration:
+  options:
+    install_command: odoo
+  versions:
+    - version: 10.0.0
+      operations:
+        pre:
+          - anthem songs.install.pre::main
+        post:
+          - anthem songs.install.data_all::main
+      modes:
+        full:
+          operations:
+            post:
+              - anthem songs.install.data_full::main
+        demo:
+          operations:
+            post:
+              - anthem songs.install.data_demo::main
+      addons:
+        upgrade:
+          - server_environment
+          - base_technical_features

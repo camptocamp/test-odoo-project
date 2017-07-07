@@ -1,0 +1,25 @@
+# file used with gitaggregate: https://github.com/acsone/git-aggregator
+# please see docs in docs/how-to-integrate-pull-request.md
+#
+# Examples:
+# ./external-src/bank-payment:
+#   remotes:
+#     oca: git@github.com:OCA/bank-payment.git
+#     camptocamp: git@github.com:camptocamp/bank-payment.git
+#   merges:
+#     - oca 10.0
+#       # add module account_invoice_bank_selection
+#     - oca refs/pull/236/head
+#   target: &default_target camptocamp merge-branch-0000-master
+# ./external-src/bank-statement-reconcile:
+#   remotes:
+#     oca: git@github.com:OCA/bank-statement-reconcile.git
+#     camptocamp: git@github.com:camptocamp/bank-statement-reconcile.git
+#   merges:
+#     - oca 10.0
+#     # port account_mass_reconcile
+#     - oca refs/pull/136/head
+#     # port of account_statement_base_import
+#     - oca refs/pull/137/head
+#   target: *default_target
+

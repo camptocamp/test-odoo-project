@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Translations
+*.mo
+
+# backup files
+*.~*
+
+# local dev requirements
+odoo/dev_requirements.txt
