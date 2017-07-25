@@ -19,5 +19,6 @@ migration:
               - anthem songs.install.data_demo::main
       addons:
         upgrade:
+          - sale
           - server_environment
           - base_technical_features
