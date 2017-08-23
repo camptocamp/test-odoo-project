@@ -259,7 +259,7 @@ git add odoo/external-src/sale-workflow
 ```
 
 And to add it in the `ADDONS_PATH` environment variable of the
-[Dockerfile](../odoo/Dockerfile). As the `Dockerfile` is modified, a rebuild is
+[Dockerfile](odoo/Dockerfile). As the `Dockerfile` is modified, a rebuild is
 required.
 
 Then commit the new submodule
