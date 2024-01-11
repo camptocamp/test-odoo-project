@@ -4,11 +4,10 @@
 
 import anthem
 
-
 @anthem.log
 def setup_company(ctx):
-    """ Setup company """
-    # load logo on company
+    """Setup company"""
+    
     values = {
         'name': "test-odoo-project",
         'street': "",
@@ -16,11 +15,10 @@ def setup_company(ctx):
         'city': "",
         'country_id': ctx.env.ref('base.ch').id,
         'phone': "+41 00 000 00 00",
-        'fax': "+41 00 000 00 00",
+        'currency_id': ctx.env.ref('base.CHF').id,
         'email': "contact@test-odoo-project.ch",
         'website': "http://www.test-odoo-project.ch",
         'vat': "VAT",
-        'currency_id': ctx.env.ref('base.CHF').id,
     }
     ctx.env.ref('base.main_company').write(values)
 
@@ -40,4 +38,4 @@ def setup_language(ctx):
 def main(ctx):
     """ Main: creating demo data """
     setup_company(ctx)
-    setup_language(ctx)
+    #setup_language(ctx)

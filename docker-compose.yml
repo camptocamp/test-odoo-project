@@ -24,7 +24,7 @@ services:
       # - ODOO_CONNECTOR_CHANNELS=root:4
 
   db:
-    image: postgres:9.6
+    image: ghcr.io/camptocamp/postgres:12-postgis3
     command: -c shared_buffers=256MB -c maintenance_work_mem=256MB -c wal_buffers=8MB -c effective_cache_size=1024MB
     environment:
       - POSTGRES_USER=odoo
@@ -33,7 +33,7 @@ services:
       - "data-db:/var/lib/postgresql/data"
 
   nginx:
-    image: camptocamp/odoo-nginx:9.0-1.1.0
+    image: camptocamp/odoo-nginx:1.8.3
     depends_on:
       - odoo
 
