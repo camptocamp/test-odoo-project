@@ -1,8 +1,31 @@
 migration:
-  options:
-    install_command: odoo
   versions:
-    - version: 10.0.0
+    - version: setup
+      operations:
+        pre:
+          - odoo -i base --stop-after-init --workers=0 --no-xmlrpc
+          - anthem songs.install.pre::main
+        post:
+          #- anthem songs.install.accounting::main
+          #- anthem songs.install.logistics::main
+          - anthem songs.install.data_all::main
+      modes:
+        full:
+          operations:
+            post:
+              - anthem songs.install.data_full::main
+              #### import heavy stuff
+              #- importer.sh songs.install.inventory::setup_locations /odoo/data/install/stock.location.csv
+              #- anthem songs.install.inventory::location_compute_parents
+        sample:
+          operations:
+            post:
+              - anthem songs.sample.data_sample::main
+      addons:
+        upgrade:
+          - server_environment
+          - base_technical_features
+    - version: 16.0.0.0.0
       operations:
         pre:
           - anthem songs.install.pre::main
@@ -20,5 +43,3 @@ migration:
       addons:
         upgrade:
           - sale
-          - server_environment
-          - base_technical_features
